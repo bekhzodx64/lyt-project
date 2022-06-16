@@ -21,16 +21,16 @@
 		@apply opacity-60 capitalize;
 	}
 
-	.menu-button {
-		@apply border border-black rounded-full flex justify-center items-center w-12 h-12 transition-all hover:bg-black;
+	.search-button {
+		@apply border border-black rounded-full flex justify-center items-center w-10 md:w-12 h-10 md:h-12 transition-all hover:bg-black;
 	}
 
-	.menu-button svg {
-		@apply transition-all text-2xl;
+	.search-button svg {
+		@apply transition-all text-xl md:text-2xl;
 	}
 
 	.button {
-		@apply border border-black rounded-full px-5 py-2 transition-all select-none;
+		@apply border border-black rounded-full p-3 md:px-5 md:py-2 transition-all select-none;
 	}
 
 	.main {
@@ -39,5 +39,9 @@
 
 	.inverted {
 		@apply hover:bg-white hover:text-black bg-black text-white;
+	}
+
+	.search {
+		@apply hover:bg-gray-200 hover:text-black bg-black text-white rounded-none border-none
 	}
 }
