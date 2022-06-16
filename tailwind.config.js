@@ -2,7 +2,15 @@
 module.exports = {
 	content: ['./src/**/*.{js,jsx,ts,tsx}'],
 	theme: {
-		extend: {},
+		extend: {
+			screens: {
+				'2xl': 'none',
+			},
+			container: {
+				center: true,
+				padding: 20,
+			},
+		},
 	},
 	plugins: [],
 };
