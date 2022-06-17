@@ -22,11 +22,11 @@
 	}
 
 	.search-button {
-		@apply border border-black rounded-full flex justify-center items-center w-10 md:w-12 h-10 md:h-12 transition-all hover:bg-black;
+		@apply border border-black rounded-full flex justify-center items-center w-10 md:w-12 h-10 md:h-12  hover:bg-black;
 	}
 
 	.search-button svg {
-		@apply transition-all text-xl md:text-2xl;
+		@apply text-xl md:text-2xl;
 	}
 
 	.button {
@@ -42,6 +42,10 @@
 	}
 
 	.search {
-		@apply hover:bg-gray-200 hover:text-black bg-black text-white rounded-none border-none
+		@apply hover:bg-gray-200 hover:text-black bg-black text-white rounded-none border-none;
+	}
+
+	.white {
+		@apply bg-white/80 text-black mx-auto inline-block hover:bg-white;
 	}
 }

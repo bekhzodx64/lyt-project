@@ -2,6 +2,7 @@ const BUTTON_TYPES_CLASSES = {
 	main: 'main',
 	inverted: 'inverted',
 	search: 'search',
+	white: 'white',
 };
 
 const Button = ({ children, buttonType, ...otherProps }) => {
