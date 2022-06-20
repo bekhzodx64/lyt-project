@@ -7,7 +7,7 @@ const UserSinglePage = ({ user }) => {
 			<img
 				src={avatar}
 				alt={`${id}-${first_name}-${last_name}`}
-				className='[clip-path:circle(70%_at_20%_30%)] md:[clip-path:polygon(0%_0%,100%_0%,75%_100%,0%_100%)] w-full object-cover h-72 select-none'
+				className='[clip-path:circle(70%_at_20%_30%)] md:[clip-path:polygon(0%_0%,100%_0%,75%_100%,0%_100%)] w-full md:w-72 object-cover h-72 select-none'
 			/>
 			<div className='space-y-3 md:pl-5 py-5 md:pr-12'>
 				<p className='text-4xl'>{`${first_name} ${last_name}`}</p>
