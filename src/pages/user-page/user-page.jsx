@@ -9,7 +9,7 @@ const UserPage = ({ users }) => {
 
 	return (
 		<div className='container'>
-			<div className='flex justify-center items-center min-h-screen'>
+			<div className='flex justify-center items-center md:min-h-screen py-28'>
 				<UserSinglePage user={user} />
 			</div>
 		</div>
