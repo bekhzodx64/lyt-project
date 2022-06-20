@@ -1,6 +1,9 @@
 import { Fragment, useEffect, useState } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Header from './components/header/header.component';
-import UsersGrid from './components/users-grid/users-grid.component';
+import Home from './pages/home/home';
+import UserPage from './pages/user-page/user-page';
+import UsersPage from './pages/users-page/users-page';
 
 const App = () => {
 	const [users, setUsers] = useState([]);
@@ -18,7 +21,14 @@ const App = () => {
 	return (
 		<Fragment>
 			<Header />
-			<UsersGrid users={users} />
+			<Routes>
+				<Route path='/' element={<Home users={users} />} />
+				<Route path='/users/*'>
+					<Route index element={<UsersPage users={users} />} />
+					<Route path=':userId' element={<UserPage users={users} />} />
+				</Route>
+				<Route path='*' element={<Navigate to='/' replace />} />
+			</Routes>
 		</Fragment>
 	);
 };

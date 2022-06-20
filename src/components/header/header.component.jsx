@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Button from '../button/button.component';
 import SearchPopup from '../search-popup/searchPopup.component';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Outlet } from 'react-router-dom';
 
 const SEARCH_POPUP_ANIMATIONS = {
 	hidden: {
@@ -27,7 +28,7 @@ const Header = () => {
 	};
 
 	return (
-		<header className='shadow bg-white'>
+		<header className='shadow bg-white fixed top-0 left-0 right-0 z-50'>
 			<div className='container py-4 flex justify-between sm:grid grid-cols-3 items-center relative'>
 				<button
 					type='button'
@@ -70,6 +71,7 @@ const Header = () => {
 					)}
 				</AnimatePresence>
 			</div>
+			<Outlet />
 		</header>
 	);
 };

@@ -5,10 +5,10 @@ const BUTTON_TYPES_CLASSES = {
 	white: 'white',
 };
 
-const Button = ({ children, buttonType, ...otherProps }) => {
+const Button = ({ children, buttonType, className, ...otherProps }) => {
 	return (
 		<button
-			className={`button ${BUTTON_TYPES_CLASSES[buttonType]}`}
+			className={`button ${BUTTON_TYPES_CLASSES[buttonType]} ${className}`}
 			{...otherProps}>
 			{children}
 		</button>
