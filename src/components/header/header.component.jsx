@@ -49,14 +49,18 @@ const Header = ({ onChangeHandler }) => {
 					</Link>
 				</div>
 				<div className='justify-self-end space-x-3'>
-					<Button buttonType='inverted'>
-						<AiOutlineEdit className='md:hidden' />
-						<span className='hidden md:block'>Sign in</span>
-					</Button>
-					<Button buttonType='main'>
-						<AiOutlineLogin className='md:hidden' />
-						<span className='hidden md:block'>Sing up</span>
-					</Button>
+					<Link to='sign-in'>
+						<Button buttonType='inverted'>
+							<AiOutlineEdit className='md:hidden' />
+							<span className='hidden md:block'>Sign in</span>
+						</Button>
+					</Link>
+					<Link to='sign-up'>
+						<Button buttonType='main'>
+							<AiOutlineLogin className='md:hidden' />
+							<span className='hidden md:block'>Sing up</span>
+						</Button>
+					</Link>
 				</div>
 
 				<AnimatePresence>

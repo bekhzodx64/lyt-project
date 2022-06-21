@@ -2,15 +2,17 @@ import { Fragment, useEffect, useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Header from './components/header/header.component';
 import Home from './pages/home/home';
+import SignIn from './pages/sign-in/sign-in';
+import SignUp from './pages/sign-up/sign-up';
 import UserPage from './pages/user-page/user-page';
 import UsersPage from './pages/users-page/users-page';
 
 const App = () => {
+	const [users, setUsers] = useState([]);
+
 	const perPage = 5;
 	const [totalPages, setTotalPages] = useState(1);
 	const [page, setPage] = useState(1);
-
-	const [users, setUsers] = useState([]);
 	const [loading, setLoading] = useState(false);
 
 	const [searchField, setSearchField] = useState('');
@@ -64,6 +66,8 @@ const App = () => {
 					/>
 					<Route path=':userId' element={<UserPage users={users} />} />
 				</Route>
+				<Route path='/sign-in' element={<SignIn />} />
+				<Route path='/sign-up' element={<SignUp />} />
 				<Route path='*' element={<Navigate to='/' replace />} />
 			</Routes>
 		</Fragment>

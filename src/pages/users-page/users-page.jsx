@@ -11,10 +11,12 @@ const UsersPage = ({ users, totalPages, loading, page, setPage }) => {
 			</div>
 
 			<div className='flex justify-center'>
-				{totalPages !== page && (
+				{totalPages !== page ? (
 					<Button buttonType='inverted' onClick={() => setPage(page + 1)}>
 						{loading ? 'Loading...' : 'Load more'}
 					</Button>
+				) : (
+					'test'
 				)}
 			</div>
 		</div>
