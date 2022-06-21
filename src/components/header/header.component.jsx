@@ -20,7 +20,7 @@ const SEARCH_POPUP_ANIMATIONS = {
 	},
 };
 
-const Header = () => {
+const Header = ({ onChangeHandler }) => {
 	const [showSearch, setShowSearch] = useState(false);
 
 	const searchHandler = () => {
@@ -66,7 +66,7 @@ const Header = () => {
 							initial='hidden'
 							animate='visible'
 							exit='exit'>
-							<SearchPopup />
+							<SearchPopup onSearch={onChangeHandler} />
 						</motion.div>
 					)}
 				</AnimatePresence>

@@ -13,6 +13,9 @@ const App = () => {
 	const [users, setUsers] = useState([]);
 	const [loading, setLoading] = useState(false);
 
+	const [searchField, setSearchField] = useState('');
+	const [filteredUsers, setFilteredUsers] = useState(users);
+
 	useEffect(() => {
 		const getUserList = () => {
 			setLoading(true);
@@ -27,17 +30,31 @@ const App = () => {
 		getUserList();
 	}, [page]);
 
+	useEffect(() => {
+		const newFilteredUsers = users.filter((user) => {
+			const fullName = `${user.first_name} ${user.last_name}`;
+			return fullName.toLowerCase().includes(searchField);
+		});
+		setFilteredUsers(newFilteredUsers);
+	}, [users, searchField]);
+
+	const onSearchChange = (event) => {
+		const searchFieldString = event.target.value.toLowerCase();
+		setSearchField(searchFieldString);
+		console.log(searchFieldString);
+	};
+
 	return (
 		<Fragment>
-			<Header page={page} setPage={setPage} />
+			<Header onChangeHandler={onSearchChange} />
 			<Routes>
-				<Route path='/' element={<Home users={users} />} />
+				<Route path='/' element={<Home users={filteredUsers} />} />
 				<Route path='/users/*'>
 					<Route
 						index
 						element={
 							<UsersPage
-								users={users}
+								users={filteredUsers}
 								totalPages={totalPages}
 								page={page}
 								setPage={setPage}
