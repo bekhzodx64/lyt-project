@@ -6,25 +6,45 @@ import UserPage from './pages/user-page/user-page';
 import UsersPage from './pages/users-page/users-page';
 
 const App = () => {
-	const [users, setUsers] = useState([]);
+	const perPage = 5;
+	const [totalPages, setTotalPages] = useState(1);
+	const [page, setPage] = useState(1);
 
-	const getUsers = async () => {
-		const res = await fetch('https://reqres.in/api/users/');
-		const json = await res.json();
-		setUsers(json.data);
-	};
+	const [users, setUsers] = useState([]);
+	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
-		getUsers();
-	}, []);
+		const getUserList = () => {
+			setLoading(true);
+			fetch(`https://reqres.in/api/users?per_page=${perPage}&page=${page}`)
+				.then((res) => res.json())
+				.then((res) => {
+					setTotalPages(res.totalPages);
+					setUsers([...users, ...res.data]);
+					setLoading(false);
+				});
+		};
+		getUserList();
+	}, [page]);
 
 	return (
 		<Fragment>
-			<Header />
+			<Header page={page} setPage={setPage} />
 			<Routes>
 				<Route path='/' element={<Home users={users} />} />
 				<Route path='/users/*'>
-					<Route index element={<UsersPage users={users} />} />
+					<Route
+						index
+						element={
+							<UsersPage
+								users={users}
+								totalPages={totalPages}
+								page={page}
+								setPage={setPage}
+								loading={loading}
+							/>
+						}
+					/>
 					<Route path=':userId' element={<UserPage users={users} />} />
 				</Route>
 				<Route path='*' element={<Navigate to='/' replace />} />
