@@ -3,8 +3,16 @@
 @tailwind utilities;
 
 @layer base {
+	* {
+		-webkit-tap-highlight-color: transparent;
+	}
+
 	body {
 		@apply font-[Montserrat];
+	}
+
+	::-webkit-scrollbar {
+		display: none;
 	}
 }
 

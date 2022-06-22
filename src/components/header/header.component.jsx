@@ -10,12 +10,16 @@ import { Outlet } from 'react-router-dom';
 
 const SEARCH_POPUP_ANIMATIONS = {
 	hidden: {
+		position: 'absolute',
+		scaleY: 0,
 		opacity: 0,
 	},
 	visible: {
+		scaleY: 1,
 		opacity: 1,
 	},
 	exit: {
+		scaleY: 0,
 		opacity: 0,
 	},
 };
@@ -69,7 +73,8 @@ const Header = ({ onChangeHandler }) => {
 							variants={SEARCH_POPUP_ANIMATIONS}
 							initial='hidden'
 							animate='visible'
-							exit='exit'>
+							exit='exit'
+							className='origin-left'>
 							<SearchPopup onSearch={onChangeHandler} />
 						</motion.div>
 					)}
